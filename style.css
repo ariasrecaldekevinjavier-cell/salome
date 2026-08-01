@@ -1,0 +1,2566 @@
+<!-- ==========================
+     FUEGOS ARTIFICIALES
+========================== -->
+
+<div id="fireworksContainer"></div>
+
+<!-- ==========================
+     PARTÍCULAS
+========================== -->
+
+<canvas id="particleCanvas"></canvas>
+
+<!-- ==========================
+     BOTÓN SUBIR
+========================== -->
+
+<button id="backToTop">
+
+    <i class="fa-solid fa-chevron-up"></i>
+
+</button>
+
+<!-- ==========================
+     REPRODUCTOR PRINCIPAL
+========================== -->
+
+<audio id="backgroundMusic" loop>
+
+    <source
+        src="music/background.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+<audio id="pageSound">
+
+    <source
+        src="music/page.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+<audio id="openEnvelopeSound">
+
+    <source
+        src="music/open.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+<audio id="clickSound">
+
+    <source
+        src="music/click.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+<!-- ==========================
+     MODAL PARA FOTOS
+========================== -->
+
+<div id="imageModal">
+
+    <span id="closeModal">
+
+        &times;
+
+    </span>
+
+    <img
+
+        id="modalImage"
+
+        src=""
+
+        alt="">
+
+</div>
+
+<!-- ==========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <h2>
+
+            ❤️ Para Salomé ❤️
+
+        </h2>
+
+        <p>
+
+            Hecho con muchísimo cariño.
+
+        </p>
+
+        <p>
+
+            Cada detalle fue pensado
+            especialmente para ti.
+
+        </p>
+
+        <div class="footer-icons">
+
+            <i class="fa-solid fa-heart"></i>
+
+            <i class="fa-solid fa-star"></i>
+
+            <i class="fa-solid fa-moon"></i>
+
+            <i class="fa-solid fa-camera"></i>
+
+            <i class="fa-solid fa-book-open"></i>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- ==========================
+     JAVASCRIPT
+========================== -->
+
+<script src="script.js"></script>
+
+</div>
+
+</body>
+
+</html>
+/*=========================================
+        PANTALLA DE CONTRASEÑA
+=========================================*/
+
+#lockScreen{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(255,79,135,.25),
+    transparent 60%),
+    linear-gradient(
+    180deg,
+    #050816,
+    #111b35,
+    #050816);
+
+}
+
+
+.glass-card{
+
+    width:420px;
+
+    max-width:90%;
+
+    padding:45px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.10);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    text-align:center;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.45);
+
+}
+
+
+.glass-card i{
+
+    font-size:55px;
+
+    color:var(--pink);
+
+    margin-bottom:25px;
+
+}
+
+
+.glass-card h2{
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+}
+
+
+.glass-card p{
+
+    color:#dddddd;
+
+    margin-bottom:25px;
+
+    line-height:1.6;
+
+}
+
+
+#password{
+
+    width:100%;
+
+    padding:16px;
+
+    border-radius:15px;
+
+    border:none;
+
+    outline:none;
+
+    background:rgba(255,255,255,.15);
+
+    color:white;
+
+    font-size:18px;
+
+    margin-bottom:20px;
+
+}
+
+
+#password::placeholder{
+
+    color:#dddddd;
+
+}
+
+
+#unlock{
+
+    width:100%;
+
+    padding:16px;
+
+    border-radius:15px;
+
+    background:
+
+    linear-gradient(
+    45deg,
+    var(--pink),
+    var(--purple));
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+#unlock:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 18px 35px rgba(255,79,135,.35);
+
+}
+
+
+#errorMessage{
+
+    margin-top:18px;
+
+    color:#ffb3b3;
+
+    min-height:20px;
+
+}
+
+
+/*=========================================
+                WEBSITE
+=========================================*/
+
+#website{
+
+    display:none;
+
+}
+
+
+/*=========================================
+                HERO
+=========================================*/
+
+#hero{
+
+    width:100%;
+
+    height:100vh;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+}
+
+
+#heroImage{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    animation:zoomBackground 25s linear infinite alternate;
+
+}
+
+
+.hero-filter{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.45),
+    rgba(0,0,0,.65));
+
+}
+
+
+.hero-content{
+
+    position:relative;
+
+    z-index:5;
+
+    text-align:center;
+
+    width:90%;
+
+    max-width:900px;
+
+}
+
+
+.hero-content h1{
+
+    font-size:72px;
+
+    font-family:"Great Vibes",cursive;
+
+    margin-bottom:25px;
+
+    text-shadow:
+    0 5px 25px rgba(0,0,0,.45);
+
+}
+
+
+.hero-content h3{
+
+    font-size:28px;
+
+    font-weight:400;
+
+    margin-bottom:25px;
+
+}
+
+
+.hero-content p{
+
+    font-size:20px;
+
+    line-height:1.9;
+
+    color:#f5f5f5;
+
+    margin-bottom:40px;
+
+}
+
+
+/*=========================================
+            BOTÓN PRINCIPAL
+=========================================*/
+
+.mainButton{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:18px 40px;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+    45deg,
+    var(--pink),
+    var(--purple));
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    transition:.4s;
+
+    box-shadow:
+    0 15px 35px rgba(255,79,135,.30);
+
+}
+
+
+.mainButton:hover{
+
+    transform:translateY(-5px) scale(1.05);
+
+}
+
+
+/*=========================================
+                ABOUT
+=========================================*/
+
+#about{
+
+    padding:120px 10%;
+
+    background:
+    linear-gradient(
+    180deg,
+    #08111f,
+    #101b33);
+
+}
+
+
+.about-box{
+
+    max-width:900px;
+
+    margin:auto;
+
+    background:rgba(255,255,255,.08);
+
+    padding:45px;
+
+    border-radius:30px;
+
+    backdrop-filter:blur(12px);
+
+    line-height:2;
+
+    font-size:20px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+/*=========================================
+            ANIMACIONES
+=========================================*/
+
+@keyframes zoomBackground{
+
+0%{
+
+transform:scale(1);
+
+}
+
+100%{
+
+transform:scale(1.15);
+
+}
+
+}
+/*==================================================
+        CARTA - SOBRE - CONTADOR
+        STYLE.CSS PARTE 3
+====================================================*/
+
+
+/*=========================================
+            CARTA
+=========================================*/
+
+#letter{
+
+    padding:140px 10%;
+
+    background:
+    linear-gradient(
+    180deg,
+    #101b33,
+    #172545,
+    #101b33);
+
+}
+
+
+.envelope-container{
+
+    width:100%;
+
+    max-width:900px;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+/*=========================================
+            SOBRE
+=========================================*/
+
+#envelope{
+
+    position:relative;
+
+    width:420px;
+
+    height:270px;
+
+    cursor:pointer;
+
+    transition:.6s;
+
+    perspective:1200px;
+
+}
+
+
+.envelope-back{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#d85c7f;
+
+    border-radius:10px;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+.envelope-front{
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    height:70%;
+
+    background:#f17899;
+
+    clip-path:polygon(
+        0 0,
+        50% 60%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+
+}
+
+
+.envelope-flap{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    right:0;
+
+    height:55%;
+
+    background:#ff9cbc;
+
+    clip-path:polygon(
+        0 0,
+        50% 100%,
+        100% 0
+    );
+
+    transform-origin:top;
+
+    transition:.8s;
+
+}
+
+
+.wax-seal{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:50%;
+
+    background:#b30d2f;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:24px;
+
+    color:white;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.35);
+
+}
+
+
+/*=========================================
+            PAPEL
+=========================================*/
+
+#letterPaper{
+
+    margin-top:40px;
+
+    width:100%;
+
+    max-width:760px;
+
+    padding:55px;
+
+    background:
+
+    url("images/paper.png")
+    center/cover;
+
+    border-radius:25px;
+
+    color:#2f2f2f;
+
+    display:none;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.30);
+
+}
+
+
+.paper-header{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+
+.paper-header h2{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:58px;
+
+    color:#8c1f48;
+
+}
+
+
+.paper-content{
+
+    font-size:20px;
+
+    line-height:2.1;
+
+}
+
+
+/*=========================================
+            CONTADOR
+=========================================*/
+
+#counterSection{
+
+    padding:140px 8%;
+
+    background:
+
+    linear-gradient(
+    180deg,
+    #172545,
+    #111c37);
+
+}
+
+
+.counter-box{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(150px,1fr));
+
+    gap:25px;
+
+}
+
+
+.counter-card{
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:25px;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    transition:.35s;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+.counter-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+.counter-card span{
+
+    display:block;
+
+    font-size:52px;
+
+    font-weight:700;
+
+    color:var(--pink);
+
+    margin-bottom:10px;
+
+}
+
+
+.counter-card small{
+
+    font-size:18px;
+
+    color:#dddddd;
+
+}
+
+
+/*=========================================
+        EFECTOS DECORATIVOS
+=========================================*/
+
+.paper-content p{
+
+    margin-bottom:20px;
+
+}
+
+.paper-content p:last-child{
+
+    text-align:center;
+
+    font-size:34px;
+
+}
+
+#envelope:hover{
+
+    transform:scale(1.03);
+
+}
+
+#envelope:hover .envelope-flap{
+
+    transform:rotateX(180deg);
+
+}
+
+
+/*=========================================
+            RESPONSIVE
+=========================================*/
+
+@media(max-width:768px){
+
+#envelope{
+
+width:320px;
+
+height:210px;
+
+}
+
+#letterPaper{
+
+padding:35px;
+
+}
+
+.paper-header h2{
+
+font-size:42px;
+
+}
+
+.paper-content{
+
+font-size:17px;
+
+line-height:1.8;
+
+}
+
+.counter-card span{
+
+font-size:40px;
+
+}
+
+}
+/*==================================================
+        LIBRO - GALERÍA - TIMELINE
+        STYLE.CSS PARTE 4
+====================================================*/
+
+
+/*=========================================
+            LIBRO
+=========================================*/
+
+#memoryBook{
+
+    padding:140px 8%;
+
+    background:
+    linear-gradient(
+        180deg,
+        #111c37,
+        #08111f
+    );
+
+}
+
+#book{
+
+    width:100%;
+
+    max-width:950px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.book-cover{
+
+    width:320px;
+
+    height:430px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #5a0f29,
+        #8d1d49,
+        #c73772
+    );
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.5s;
+
+    box-shadow:var(--shadow);
+
+}
+
+.book-cover:hover{
+
+    transform:
+    rotateY(-8deg)
+    scale(1.03);
+
+}
+
+
+.book-cover h2{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:52px;
+
+    margin-bottom:20px;
+
+}
+
+.book-cover p{
+
+    font-size:18px;
+
+}
+
+
+.book-page{
+
+    width:320px;
+
+    min-height:430px;
+
+    padding:35px;
+
+    background:white;
+
+    color:#333;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    transition:.4s;
+
+}
+
+.book-page:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.book-page h3{
+
+    color:#b31d56;
+
+    margin-bottom:20px;
+
+}
+
+.book-page p{
+
+    line-height:1.9;
+
+}
+
+
+/*=========================================
+            GALERÍA
+=========================================*/
+
+#gallery{
+
+    padding:140px 8%;
+
+    background:
+
+    linear-gradient(
+        180deg,
+        #08111f,
+        #121d38
+    );
+
+}
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:28px;
+
+}
+
+.gallery-grid img{
+
+    width:100%;
+
+    height:300px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    transition:.45s;
+
+    box-shadow:var(--shadow);
+
+}
+
+.gallery-grid img:hover{
+
+    transform:
+
+    scale(1.05)
+
+    rotate(1deg);
+
+}
+
+
+/*=========================================
+            TIMELINE
+=========================================*/
+
+#timeline{
+
+    padding:140px 10%;
+
+    background:
+    linear-gradient(
+        180deg,
+        #121d38,
+        #08111f
+    );
+
+}
+
+.timeline{
+
+    position:relative;
+
+    max-width:1100px;
+
+    margin:auto;
+
+}
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    width:4px;
+
+    height:100%;
+
+    background:
+
+    linear-gradient(
+
+        var(--pink),
+
+        var(--purple)
+
+    );
+
+}
+
+
+.timeline-item{
+
+    width:50%;
+
+    padding:25px;
+
+    position:relative;
+
+}
+
+.timeline-item.left{
+
+    left:0;
+
+}
+
+.timeline-item.right{
+
+    left:50%;
+
+}
+
+
+.timeline-content{
+
+    background:rgba(255,255,255,.08);
+
+    padding:28px;
+
+    border-radius:20px;
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    box-shadow:var(--shadow);
+
+}
+
+.timeline-content h3{
+
+    margin:15px 0;
+
+    color:#ffffff;
+
+}
+
+.timeline-content p{
+
+    line-height:1.8;
+
+    color:#dddddd;
+
+}
+
+.timeline-date{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:
+
+    linear-gradient(
+
+        var(--pink),
+
+        var(--purple)
+
+    );
+
+    font-size:14px;
+
+}
+
+
+/*=========================================
+        RESPONSIVE
+=========================================*/
+
+@media(max-width:900px){
+
+.timeline::before{
+
+left:25px;
+
+}
+
+.timeline-item{
+
+width:100%;
+
+left:0 !important;
+
+padding-left:70px;
+
+padding-right:0;
+
+margin-bottom:30px;
+
+}
+
+#book{
+
+flex-direction:column;
+
+}
+
+.book-cover,
+
+.book-page{
+
+width:100%;
+
+max-width:450px;
+
+}
+
+.gallery-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+/*==================================================
+
+        MÚSICA - VIDEO - REGALO
+        FOOTER - BOTÓN ARRIBA
+
+        STYLE.CSS PARTE 5
+
+====================================================*/
+
+
+/*=========================================
+            MÚSICA
+=========================================*/
+
+#music{
+
+    padding:140px 8%;
+
+    background:
+    linear-gradient(
+        180deg,
+        #08111f,
+        #121b34
+    );
+
+}
+
+.music-player{
+
+    width:100%;
+
+    max-width:800px;
+
+    margin:auto;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(14px);
+
+    border-radius:30px;
+
+    padding:40px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.music-player button{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+        45deg,
+        var(--pink),
+        var(--purple)
+    );
+
+    color:white;
+
+    font-size:24px;
+
+}
+
+.music-player button:hover{
+
+    transform:scale(1.1);
+
+}
+
+.music-progress{
+
+    flex:1;
+
+    height:10px;
+
+    background:rgba(255,255,255,.15);
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+}
+
+#progressBar{
+
+    width:0%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        var(--pink),
+        var(--pink2),
+        white
+    );
+
+}
+
+
+/*=========================================
+                FRASES
+=========================================*/
+
+#quotes{
+
+    padding:120px 8%;
+
+    background:
+    linear-gradient(
+        180deg,
+        #121b34,
+        #091020
+    );
+
+}
+
+.quote-box{
+
+    max-width:850px;
+
+    margin:auto;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:30px;
+
+    padding:45px;
+
+    box-shadow:var(--shadow);
+
+}
+
+#quoteText{
+
+    font-size:28px;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+}
+
+#nextQuote{
+
+    padding:16px 35px;
+
+    border-radius:40px;
+
+    background:
+    linear-gradient(
+        45deg,
+        var(--pink),
+        var(--purple)
+    );
+
+    color:white;
+
+    font-size:18px;
+
+}
+
+
+/*=========================================
+                VIDEO
+=========================================*/
+
+#videoSection{
+
+    padding:140px 8%;
+
+    background:
+    linear-gradient(
+        180deg,
+        #091020,
+        #050816
+    );
+
+}
+
+.video-container{
+
+    max-width:1000px;
+
+    margin:auto;
+
+}
+
+.video-container video{
+
+    width:100%;
+
+    border-radius:25px;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+/*=========================================
+                REGALO
+=========================================*/
+
+#gift{
+
+    padding:140px 8%;
+
+    text-align:center;
+
+}
+
+.gift-box{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.gift-box img{
+
+    width:260px;
+
+    transition:.5s;
+
+}
+
+.gift-box img:hover{
+
+    transform:scale(1.08) rotate(-3deg);
+
+}
+
+#openGift{
+
+    margin-top:35px;
+
+    padding:18px 40px;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+        45deg,
+        var(--pink),
+        var(--purple)
+    );
+
+    color:white;
+
+    font-size:20px;
+
+}
+
+
+/*=========================================
+            MENSAJE FINAL
+=========================================*/
+
+#finalMessage{
+
+    padding:150px 10%;
+
+    text-align:center;
+
+}
+
+.final-content{
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+.final-content h2{
+
+    font-size:60px;
+
+    font-family:"Great Vibes",cursive;
+
+    margin-bottom:35px;
+
+}
+
+.final-content p{
+
+    font-size:22px;
+
+    line-height:2;
+
+}
+
+
+/*=========================================
+                FOOTER
+=========================================*/
+
+footer{
+
+    padding:70px 20px;
+
+    text-align:center;
+
+    background:#04060f;
+
+}
+
+.footer-content h2{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:50px;
+
+    margin-bottom:20px;
+
+}
+
+.footer-content p{
+
+    color:#d6d6d6;
+
+    margin-bottom:12px;
+
+}
+
+.footer-icons{
+
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+}
+
+.footer-icons i{
+
+    font-size:28px;
+
+    color:var(--pink);
+
+}
+
+
+/*=========================================
+            BOTÓN ARRIBA
+=========================================*/
+
+#backToTop{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:30px;
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+        45deg,
+        var(--pink),
+        var(--purple)
+    );
+
+    color:white;
+
+    font-size:22px;
+
+    display:none;
+
+    z-index:1000;
+
+    box-shadow:var(--shadow);
+
+}
+
+#backToTop:hover{
+
+    transform:scale(1.1);
+
+}
+
+
+/*=========================================
+            MODAL IMAGEN
+=========================================*/
+
+#imageModal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.9);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+#modalImage{
+
+    max-width:90%;
+
+    max-height:90%;
+
+    border-radius:20px;
+
+}
+
+#closeModal{
+
+    position:absolute;
+
+    top:30px;
+
+    right:40px;
+
+    color:white;
+
+    font-size:50px;
+
+    cursor:pointer;
+
+}
+/*==================================================
+
+            ANIMACIONES
+        STYLE.CSS PARTE 6
+
+====================================================*/
+
+
+/*=========================================
+            APARICIONES
+=========================================*/
+
+.fadeIn{
+
+    animation:fadeIn 1.2s ease forwards;
+
+}
+
+.fadeUp{
+
+    animation:fadeUp 1.2s ease forwards;
+
+}
+
+.fadeDown{
+
+    animation:fadeDown 1.2s ease forwards;
+
+}
+
+.zoomIn{
+
+    animation:zoomIn 1s ease forwards;
+
+}
+
+
+/*=========================================
+            KEYFRAMES
+=========================================*/
+
+@keyframes fadeIn{
+
+0%{
+
+opacity:0;
+
+}
+
+100%{
+
+opacity:1;
+
+}
+
+}
+
+@keyframes fadeUp{
+
+0%{
+
+opacity:0;
+
+transform:translateY(80px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes fadeDown{
+
+0%{
+
+opacity:0;
+
+transform:translateY(-80px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes zoomIn{
+
+0%{
+
+opacity:0;
+
+transform:scale(.8);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+@keyframes floating{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-18px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+@keyframes sparkle{
+
+0%{
+
+opacity:.2;
+
+transform:scale(.7);
+
+}
+
+50%{
+
+opacity:1;
+
+transform:scale(1.2);
+
+}
+
+100%{
+
+opacity:.2;
+
+transform:scale(.7);
+
+}
+
+}
+
+@keyframes heartFloat{
+
+0%{
+
+transform:translateY(0) scale(.7);
+
+opacity:0;
+
+}
+
+15%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh) scale(1.3);
+
+opacity:0;
+
+}
+
+}
+
+@keyframes petalFall{
+
+0%{
+
+transform:
+translateY(-100px)
+rotate(0deg);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(120vh)
+rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+@keyframes twinkle{
+
+0%{
+
+opacity:.3;
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:.3;
+
+}
+
+}
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.05);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+
+/*=========================================
+            EFECTOS
+=========================================*/
+
+.hero-content{
+
+animation:fadeUp 1.5s ease;
+
+}
+
+.book-cover{
+
+animation:floating 5s ease-in-out infinite;
+
+}
+
+.footer-icons i{
+
+animation:pulse 3s infinite;
+
+}
+
+.gallery-grid img{
+
+animation:fadeIn .9s ease;
+
+}
+
+.counter-card{
+
+animation:zoomIn .8s ease;
+
+}
+
+.timeline-item{
+
+animation:fadeUp 1s ease;
+
+}
+
+
+/*=========================================
+            SELECCIÓN
+=========================================*/
+
+::selection{
+
+background:var(--pink);
+
+color:white;
+
+}
+
+
+/*=========================================
+            IMÁGENES
+=========================================*/
+
+img{
+
+user-select:none;
+
+-webkit-user-drag:none;
+
+}
+
+
+/*=========================================
+            INPUTS
+=========================================*/
+
+input{
+
+font-family:"Poppins",sans-serif;
+
+}
+
+
+/*=========================================
+            RESPONSIVE
+=========================================*/
+
+@media(max-width:992px){
+
+.hero-content h1{
+
+font-size:55px;
+
+}
+
+.hero-content h3{
+
+font-size:22px;
+
+}
+
+.final-content h2{
+
+font-size:46px;
+
+}
+
+.music-player{
+
+flex-direction:column;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.section-title{
+
+font-size:36px;
+
+}
+
+.hero-content h1{
+
+font-size:42px;
+
+}
+
+.hero-content p{
+
+font-size:18px;
+
+}
+
+.quote-box{
+
+padding:30px;
+
+}
+
+#quoteText{
+
+font-size:22px;
+
+}
+
+.footer-content h2{
+
+font-size:38px;
+
+}
+
+.music-player{
+
+padding:25px;
+
+}
+
+#backToTop{
+
+width:50px;
+
+height:50px;
+
+right:20px;
+
+bottom:20px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.hero-content h1{
+
+font-size:34px;
+
+}
+
+.hero-content h3{
+
+font-size:19px;
+
+}
+
+.section-title{
+
+font-size:30px;
+
+}
+
+.paper-content{
+
+font-size:16px;
+
+}
+
+.counter-card span{
+
+font-size:34px;
+
+}
+
+.book-cover h2{
+
+font-size:40px;
+
+}
+
+.final-content h2{
+
+font-size:36px;
+
+}
+
+.final-content p{
+
+font-size:18px;
+
+line-height:1.8;
+
+}
+
+.footer-icons{
+
+gap:15px;
+
+}
+
+.footer-icons i{
+
+font-size:22px;
+
+}
+
+}
+
+
+/*==================================================
+
+        FIN DEL ARCHIVO STYLE.CSS
+
+====================================================*/
+/*==================================================
+            PARA SALOMÉ ❤️
+        SCRIPT.JS - PARTE 7
+    MÁS DE 100 MENSAJES ALEATORIOS
+    EFECTO MÁQUINA DE ESCRIBIR
+    ANIMACIONES Y SORPRESA ESPECIAL
+====================================================*/
+
+//========================================
+// MÁS DE 100 MENSAJES ALEATORIOS
+//========================================
+const loveMessages = [
+    "Eres el motivo de mi sonrisa cada día. ❤️",
+    "Cada instante a tu lado se convierte en un recuerdo inolvidable.",
+    "Eres la casualidad más bonita que llegó a mi vida.",
+    "Contigo aprendí que el amor está en las pequeñas cosas.",
+    "Gracias por darme la mano en los mejores y peores momentos.",
+    "No hay un solo día en que no me sienta afortunado/a de tenerte.",
+    "Tu risa es la melodía que aclara mis días más oscuros.",
+    "Si pudiera volver a empezar, te elegiría de nuevo sin dudarlo.",
+    "Tus abrazos son mi lugar seguro en este mundo.",
+    "Gracias por existir y ser exactamente como eres.",
+    "A tu lado, el tiempo pasa volando y cada segundo cuenta.",
+    "Nunca cambies esa forma tan bella que tienes de ver la vida.",
+    "Eres mi pensamiento favorito antes de dormir.",
+    "Haces que todo parezca más fácil y hermoso.",
+    "Cada detalle tuyo me enamora un poco más.",
+    "Eres luz en medio de cualquier tormenta.",
+    "El mejor lugar del mundo siempre será a tu lado.",
+    "Gracias por llenar mis días de alegría y calidez.",
+    "Tenerte cerca es el regalo más grande que la vida me dio.",
+    "Tu mirada transmite una paz que no encuentro en ningún otro lugar.",
+    "Eres la persona con la que quiero compartir todos mis logros.",
+    "Nada en este mundo se compara con la magia que irradias.",
+    "Amo la complicidad y las risas que compartimos.",
+    "Eres mi refugio perfecto cuando todo se vuelve caótico.",
+    "Gracias por enseñarme lo hermoso de caminar juntos.",
+    "Estar contigo es la parte más bonita de mi rutina.",
+    "Tu presencia hace que cualquier lugar se sienta como un hogar.",
+    "Nuestra historia es mi favorita de todas.",
+    "Nunca olvides lo increíblemente valiosa e importante que eres.",
+    "Gracias por inspirarme a ser mejor cada día.",
+    "Cada conversación contigo me llena el corazón.",
+    "Eres la combinación perfecta de dulzura y fortaleza.",
+    "Amo la manera en que cuidas a quienes te rodean.",
+    "Haces que las cosas sencillas se vuelvan extraordinarias.",
+    "Eres mi razón preferida para sonreír al mirar el teléfono.",
+    "Contigo la vida se siente ligera y llena de colores.",
+    "Me encanta el mundo que hemos construido juntos.",
+    "Gracias por escucharme siempre sin juzgar.",
+    "Tus abrazos reinician mi mundo entero.",
+    "Eres el mejor capítulo de mi libro de la vida.",
+    "Amo cómo conviertes un día ordinario en algo especial.",
+    "Tu felicidad siempre será una de mis prioridades.",
+    "Qué bonito es coincidir en esta vida contigo.",
+    "Eres el sueño del que nunca quisiera despertar.",
+    "Gracias por aguantar mis ocurrencias y sacarme una sonrisa.",
+    "Eres una persona infinitamente brillante y llena de talento.",
+    "Cada momento a tu lado se guarda en lo más profundo de mi ser.",
+    "El mundo es un lugar mucho mejor porque tú estás en él.",
+    "Tu voz calma cualquier tormenta dentro de mí.",
+    "Eres mi persona favorita en todo el universo.",
+    "Gracias por confiar en mí y compartir tus sueños.",
+    "Nunca dejes de brillar de la forma en que lo haces.",
+    "Estar contigo es la decisión más fácil de mi vida.",
+    "Tu bondad deja una huella imborrable en quien te conoce.",
+    "Gracias por los momentos llenos de risas descontroladas.",
+    "Eres la respuesta a todo lo bonito que le pedí a la vida.",
+    "Amo ver cómo persigues tus metas con tanta pasión.",
+    "Tu presencia ilumina cada espacio al que llegas.",
+    "Eres una obra de arte viviente.",
+    "Gracias por hacerme sentir tan especial.",
+    "Contigo hasta el silencio se siente cómodo.",
+    "Eres mi lugar favorito en todo el planeta.",
+    "Amo todo de ti, incluso las pequeñas rarezas.",
+    "Gracias por ser mi apoyo incondicional.",
+    "Eres la mejor aventura que me ha tocado vivir.",
+    "Haces que mi corazón lata un poquito más rápido.",
+    "Nunca me cansaré de repetirte lo increíble que eres.",
+    "Gracias por llenar mi camino de tanta luz y cariño.",
+    "Tus palabras siempre llegan en el momento perfecto.",
+    "Eres mi alegría diaria.",
+    "Cada paso a tu lado vale totalmente la pena.",
+    "Gracias por abrazar mis imperfecciones.",
+    "Eres el mejor regalo que me ha dado el tiempo.",
+    "Amo compartir risas, miradas y silencios contigo.",
+    "Tu ternura es infinita y contagiosa.",
+    "Gracias por enseñarme el verdadero valor de la empatía.",
+    "Eres la persona que siempre esperé encontrar.",
+    "Tu energía llena todo de color y vitalidad.",
+    "Amo lo fuerte y perseverante que eres ante cualquier reto.",
+    "Gracias por construir momentos mágicos a mi lado.",
+    "Eres un destello de felicidad constante en mi vida.",
+    "Tu inteligencia y elegancia me fascinan cada día más.",
+    "Gracias por hacerme reír como nadie más puede hacerlo.",
+    "Eres el rayo de sol de cada una de mis mañanas.",
+    "Estar a tu lado es sinónimo de paz.",
+    "Gracias por todo el amor que entregas sin reservas.",
+    "Eres única, irrepetible y absolutamente maravillosa.",
+    "Amo cómo logras contagiar alegría a tu alrededor.",
+    "Gracias por ser mi confidente y mejor compañera.",
+    "Eres una bendición en la vida de todos los que te rodean.",
+    "Amo la sinceridad y transparencia de tu corazón.",
+    "Gracias por enseñarme tanto sin darte cuenta.",
+    "Eres la razón por la que creo en las coincidencias bonitas.",
+    "Amo ver la pasión con la que vives la vida.",
+    "Gracias por llenar cada día de razones para agradecer.",
+    "Eres mi rincón de calma en medio de la tormenta.",
+    "Amo cómo sabes sacar la mejor versión de mí.",
+    "Gracias por estar presente en cada paso importante.",
+    "Eres un tesoro invaluable en mi vida.",
+    "Amo tu sonrisa y la forma en que entornas los ojos al reír.",
+    "Gracias por regalarme tantos recuerdos inolvidables.",
+    "Eres, sin duda, lo más lindo que me ha pasado. ❤️"
+];
+
+const randomMessageBtn = document.getElementById("randomMessageBtn");
+const randomMessageText = document.getElementById("randomMessageText");
+
+if (randomMessageBtn && randomMessageText) {
+    randomMessageBtn.addEventListener("click", () => {
+        const randomIndex = Math.floor(Math.random() * loveMessages.length);
+        
+        // Animación suave al cambiar mensaje
+        randomMessageText.style.opacity = "0";
+        randomMessageText.style.transform = "translateY(10px)";
+        
+        setTimeout(() => {
+            randomMessageText.textContent = loveMessages[randomIndex];
+            randomMessageText.style.transition = "all 0.4s ease";
+            randomMessageText.style.opacity = "1";
+            randomMessageText.style.transform = "translateY(0)";
+        }, 300);
+    });
+}
+
+//========================================
+// EFECTO MÁQUINA DE ESCRIBIR (TYPEWRITER)
+//========================================
+function typeWriter(element, text, speed = 50) {
+    if (!element) return;
+    element.textContent = "";
+    let i = 0;
+    
+    function type() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    type();
+}
+
+// Inicialización automática de textos tipo "typewriter"
+const typewriterElements = document.querySelectorAll(".typewriter-text");
+const observerOptions = {
+    threshold: 0.5
+};
+
+const typewriterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const el = entry.target;
+            const originalText = el.getAttribute("data-text") || el.textContent;
+            el.setAttribute("data-text", originalText);
+            typeWriter(el, originalText, 45);
+            observer.unobserve(el);
+        }
+    });
+}, observerOptions);
+
+typewriterElements.forEach(el => typewriterObserver.observe(el));
+
+//========================================
+// SORPRESA ESPECIAL Y CONFETI
+//========================================
+const specialSurpriseBtn = document.getElementById("specialSurpriseBtn");
+const surpriseModal = document.getElementById("surpriseModal");
+const closeSurprise = document.getElementById("closeSurprise");
+
+if (specialSurpriseBtn && surpriseModal) {
+    specialSurpriseBtn.addEventListener("click", () => {
+        surpriseModal.style.display = "flex";
+        surpriseModal.classList.add("fadeIn");
+        launchSurpriseConfetti();
+    });
+}
+
+if (closeSurprise && surpriseModal) {
+    closeSurprise.addEventListener("click", () => {
+        surpriseModal.style.display = "none";
+    });
+}
+
+// Función para lanzar explosión de confeti/corazones
+function launchSurpriseConfetti() {
+    const confettiContainer = document.createElement("div");
+    confettiContainer.style.position = "fixed";
+    confettiContainer.style.top = "0";
+    confettiContainer.style.left = "0";
+    confettiContainer.style.width = "100vw";
+    confettiContainer.style.height = "100vh";
+    confettiContainer.style.pointerEvents = "none";
+    confettiContainer.style.zIndex = "9999";
+    document.body.appendChild(confettiContainer);
+
+    const colors = ["#ff4d6d", "#ff758f", "#ffb3c1", "#fff0f3", "#ffd700"];
+    
+    for (let i = 0; i < 80; i++) {
+        const piece = document.createElement("div");
+        piece.style.position = "absolute";
+        piece.style.width = (6 + Math.random() * 8) + "px";
+        piece.style.height = (6 + Math.random() * 8) + "px";
+        piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.top = "-10px";
+        piece.style.borderRadius = Math.random() > 0.5 ? "50%" : "2px";
+        piece.style.opacity = Math.random();
+        piece.style.transition = `transform ${2 + Math.random() * 3}s linear, opacity ${2 + Math.random() * 3}s linear`;
+        
+        confettiContainer.appendChild(piece);
+
+        requestAnimationFrame(() => {
+            piece.style.transform = `translate(${(-100 + Math.random() * 200)}px, ${window.innerHeight + 50}px) rotate(${Math.random() * 720}deg)`;
+            piece.style.opacity = "0";
+        });
+    }
+
+    setTimeout(() => {
+        confettiContainer.remove();
+    }, 5000);
+}
+/*==================================================
+            PARA SALOMÉ ❤️
+        SCRIPT.JS - PARTE 8
+    INICIALIZACIÓN COMPLETA DEL SITIO,
+    OPTIMIZACIÓN, CORRECCIÓN DE ERRORES Y CIERRE
+====================================================*/
+
+//========================================
+// CORRECCIÓN DE ERRORES Y MANEJO DE EXCEPCIONES
+//========================================
+window.addEventListener("error", (e) => {
+    // Evita interrupciones silenciosas en la ejecución de scripts visuales
+    console.warn("Aviso de script solucionado suavemente:", e.message);
+});
+
+// Prevenir comportamiento indeseado al arrastrar imágenes en móvil y escritorio
+document.querySelectorAll("img").forEach(img => {
+    img.addEventListener("dragstart", (e) => e.preventDefault());
+});
+
+//========================================
+// OPTIMIZACIÓN DE RENDIMIENTO (THROTTLE / DEBOUNCE)
+//========================================
+function debounce(func, wait = 20) {
+    let timeout;
+    return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+}
+
+// Escuchador de scroll optimizado para animaciones Reveal
+const revealElements = document.querySelectorAll(".reveal-on-scroll");
+
+function checkReveal() {
+    const triggerBottom = window.innerHeight * 0.85;
+    revealElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < triggerBottom) {
+            el.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll", debounce(checkReveal, 15));
+
+//========================================
+// PAUSA AUTOMÁTICA DE MULTIMEDIA AL OCULTARSE
+//========================================
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        if (backgroundMusic && !backgroundMusic.paused) {
+            backgroundMusic.pause();
+        }
+    }
+});
+
+//========================================
+// INICIALIZACIÓN GENERAL DEL PROYECTO
+//========================================
+function initProject() {
+    console.log("%c ❤️ Creado con amor para Salomé ❤️ ", "background: #ff4d6d; color: #fff; font-size: 16px; padding: 6px 12px; border-radius: 4px;");
+    
+    // Disparar chequeo inicial de visibilidad de elementos
+    checkReveal();
+    
+    // Mensaje de bienvenida en consola
+    console.log("Sitio web inicializado correctamente y listo para usarse.");
+}
+
+// Ejecución tras la carga completa del DOM
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initProject);
+} else {
+    initProject();
+}
+
+/*==================================================
+        ¡PROYECTO COMPLETO Y COMPLETADO! ❤️
+====================================================*/
+
