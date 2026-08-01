@@ -381,17 +381,7 @@ behavior:"smooth"
 // Formato:
 // Año, Mes (0=enero), Día, Hora, Minuto
 
-const startDate = new Date(
-
-    2025,
-    0,
-    1,
-    0,
-    0,
-    0
-
-);
-
+const startDate = new Date('2024-01-07T00:00:00');
 
 //========================================
 // ELEMENTOS
